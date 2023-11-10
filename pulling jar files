@@ -1,0 +1,14 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'your-build-agent-image'
+
+steps:
+- checkout: self
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'path/to/your/jar/files'
+    Contents: '**/*.jar'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
